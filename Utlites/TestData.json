@@ -1,0 +1,17 @@
+﻿{
+
+
+  "username": "rahulshettyacademy",
+  "password": "learning",
+  "username_Wrong": "rahul",
+  "password_Wrong": "learn",
+
+  "products": [
+    "iphone X",
+    "Samsung Note 8",
+    "Blackberry"
+  ]
+
+
+
+}
