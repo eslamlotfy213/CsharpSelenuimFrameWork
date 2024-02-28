@@ -37,4 +37,7 @@
 		<Copy SourceFiles="App.config" DestinationFiles="$(OutDir)\testhost.dll.config" />
 	</Target>
 
+
+	<ProjectExtensions><VisualStudio><UserProperties utlites_4testdata_1json__JsonSchema="https://docs.renovatebot.com/renovate-schema.json" /></VisualStudio></ProjectExtensions>
+
 </Project>

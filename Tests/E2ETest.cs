@@ -14,7 +14,7 @@ namespace Csharp_Selenium_WebDriver_Project
         //       [TestCase ("rahulshettyacademy", "learning")]
         //       [TestCase("rahulshettyacademy2", "learning2")]
         // 
-        [Parallelizable(ParallelScope.All)]
+        [Parallelizable(ParallelScope.Self)]
         [Test, TestCaseSource("AddTestDate"), Category("Regression")]
         public void EndToEndFlow(String username, String password, String[] execptedProducts)
         {
@@ -52,6 +52,7 @@ namespace Csharp_Selenium_WebDriver_Project
 
             //Checkout wait created through Login
             productsObj.waitForPageDisplay();
+
             IList<IWebElement> products = productsObj.getCards();
 
             foreach (IWebElement pro in products)
@@ -63,6 +64,7 @@ namespace Csharp_Selenium_WebDriver_Project
                     pro.FindElement(productsObj.AddToCardButton()).Click();
                 }
             }
+
             CheckoutPage checkoutobj = productsObj.checkout();
             ////-------------------------------------------------------------------------------------------------------------///
 
@@ -95,52 +97,52 @@ namespace Csharp_Selenium_WebDriver_Project
 
 
 
-        
-                [Test,Category("Smoke")]
-                public void WindowHandelTestCase()
-                {
 
-                    String email = "mentor@rahulshettyacademy.com";
-                    String parenentCurrentWindowHandle = driver.Value.CurrentWindowHandle;
-                    driver.Value.FindElement(By.CssSelector(".blinkingText")).Click();
-                    TestContext.Progress.WriteLine(driver.Value.WindowHandles.Count);
-                    Assert.AreEqual(2, driver.Value.WindowHandles.Count);
+        [Test, Category("Smoke")]
+        public void WindowHandelTestCase()
+        {
 
-                    String child = driver.Value.WindowHandles[1];
+            String email = "mentor@rahulshettyacademy.com";
+            String parenentCurrentWindowHandle = driver.Value.CurrentWindowHandle;
+            driver.Value.FindElement(By.CssSelector(".blinkingText")).Click();
+            TestContext.Progress.WriteLine(driver.Value.WindowHandles.Count);
+            Assert.AreEqual(2, driver.Value.WindowHandles.Count);
 
-                    ////////////////////////////////
-                    driver.Value.SwitchTo().Window(child);
-                    //////////////////////////////////
-                    ///
-                    TestContext.Progress.WriteLine(driver.Value.FindElement(By.CssSelector(".red")).Text);
-                    String text = driver.Value.FindElement(By.CssSelector(".red")).Text;
+            String child = driver.Value.WindowHandles[1];
 
-                    // Please email us at mentor@rahulshettyacademy.com with below template to receive response
-                    // _mentor@rahulshettyacademy.com with below template to receive response
+            ////////////////////////////////
+            driver.Value.SwitchTo().Window(child);
+            //////////////////////////////////
+            ///
+            TestContext.Progress.WriteLine(driver.Value.FindElement(By.CssSelector(".red")).Text);
+            String text = driver.Value.FindElement(By.CssSelector(".red")).Text;
 
-                    String[] arraySplit = text.Split("at");
-                    //arraySplit[1]
-                    //TestContext.Progress.WriteLine(arraySplit[1].Trim().Split(""));
-                    String[] trimValue = arraySplit[1].Trim().Split(" ");
-                    Assert.AreEqual(email, trimValue[0]);
+            // Please email us at mentor@rahulshettyacademy.com with below template to receive response
+            // _mentor@rahulshettyacademy.com with below template to receive response
 
-                    ////////////////////////////////
-                    driver.Value.SwitchTo().Window(parenentCurrentWindowHandle);
-                    ////////////////////////////////
+            String[] arraySplit = text.Split("at");
+            //arraySplit[1]
+            //TestContext.Progress.WriteLine(arraySplit[1].Trim().Split(""));
+            String[] trimValue = arraySplit[1].Trim().Split(" ");
+            Assert.AreEqual(email, trimValue[0]);
 
-                    driver.Value.FindElement(By.Id("username")).SendKeys(trimValue[0]);
+            ////////////////////////////////
+            driver.Value.SwitchTo().Window(parenentCurrentWindowHandle);
+            ////////////////////////////////
 
-
-                }
+            driver.Value.FindElement(By.Id("username")).SendKeys(trimValue[0]);
 
 
-        
+        }
+
+
+
 
         public static IEnumerable<TestCaseData> AddTestDate()
         {
             yield return new TestCaseData(getDataparser().extractDate("username_Wrong"), getDataparser().extractDate("password_Wrong"), getDataparser().extractDateArray("products"));
             yield return new TestCaseData(getDataparser().extractDate("username"), getDataparser().extractDate("password"), getDataparser().extractDateArray("products"));
-            yield return new TestCaseData(getDataparser().extractDate("username"), getDataparser().extractDate("password"), getDataparser().extractDateArray("products"));
+           // yield return new TestCaseData(getDataparser().extractDate("username"), getDataparser().extractDate("password"), getDataparser().extractDateArray("products"));
 
         }
 

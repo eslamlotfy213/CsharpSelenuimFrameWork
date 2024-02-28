@@ -1,0 +1,108 @@
+git reset -head name of file 
+git remote -v
+git push origin
+
+---------------------------------------------------------------------------------
+git merger
+
+1. git branch  develoment
+2. git add *
+3. git checkout master 
+4. git merger develoment
+then you can remove
+5. git branch -d develoment 
+
+---------------------------------------------------------------------------------
+create branch then swith to branch
+git checkout -b new_branch
+---------------------------------------------------------------------------------
+eslamlotfy213@yahoo.com
+Amam3344703
+
+
+loacal         remote
+pc             githup
+
+
+git config --global user.name "eslamlotfy213"
+git config --global user.email "eslamlotfy213@yahoo.com"
+git init   initiate it a git repositry local  
+git add *         //stadging 
+git commit -m ""  // commit
+git remote add origin     // make contecting between loacal and remote
+git push origin master
+
+create branch   >> git checkout - b<branchname>
+
+git config --global user.name "elotfy"
+git config --global user.email "elotfy@sequel.ae"
+
+git push origin --delete remoteBranchName
+
+git commit --amend --author="elotfy <elotfy@sequel.ae>"  --no-edit
+git commit --amend --author="alicebobson <alice@bobson.com>" --no-edit
+git commit --amend --author="elotfy <elotfy@sequel.ae>" --no-edit
+
+
+
+
+https://lydiageorge_4ZCzjU:oTUYhgfQxpDrKh3zbusk@hub-cloud.browserstack.com/wd/hub
+https://eslam_NC8knM:zaYXz9b2ccSfXvLHxpfk@hub-cloud.browserstack.com/wd/hub
+
+gitx 
+create repo 
+git pull 
+add changes
+git push 
+
+
+gitdemoy
+git clone it used first time 
+add changes 
+git push
+git pull
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+echo "# Udacity" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/eslamlotfy213/Udacity.git
+git push -u origin main
+
+
+git remote add origin https://github.com/eslamlotfy213/Udacity.git
+git branch -M main
+git push -u origin main
+
+
+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
+https://github.com/eslamlotfy213/Udacity.git
+===============================================================================================================
+
+echo "# CsharpSelenuimFrameWork" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/eslamlotfy213/CsharpSelenuimFrameWork.git
+git push -u origin main
+git remote add origin https://github.com/eslamlotfy213/CsharpSelenuimFrameWork.git
+git branch -M main
+git push -u origin main
+
+
+
+echo "# Facebook-Mobile-Application-Testing" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/eslamlotfy213/Facebook-Mobile-Application-Testing.git
+git push -u origin main

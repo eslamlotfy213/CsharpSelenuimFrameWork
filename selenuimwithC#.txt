@@ -1,0 +1,88 @@
+>Jenkins 
+dotnet test Csharp_Selenium_WebDriver_Project.csproj --filter TestCategory=%category% 
+-- TestRunParameters.Parameter(name=\"browserName\", value=\"%browserName%\")
+
+CMD
+dotnet test Csharp_Selenium_WebDriver_Project.csproj --filter TestCategory=Smoke --% -- TestRunParameters.Parameter(name=\"browserName\", value=\"FireFox\")
+
+>from udemy
+dotnet test Csharp_Selenium_WebDriver_Project.csproj --filter TestCategory=%category% 
+-- TestRunParameters.Parameter(name=\"browserName\", value=\"%browserName%\")
+
+
+>invokebrowser from CMD
+from islam
+dotnet test Csharp_Selenium_WebDriver_Project.csproj --filter TestCategory=Smoke 
+-- TestRunParameters.Parameter(name=\"browserName\", value=\"FireFox\")
+
+
+
+
+Run ALL Tests Projects  based on category
+  EX:  dotnet test filepath.csproj --filter TestCategory=Smoke 
+  EX:  dotnet test Csharp_Selenium_WebDriver_Project.csproj  --filter TestCategory=Smoke
+  EX:  dotnet test Csharp_Selenium_WebDriver_Project.csproj --filter TestCategory=Regression
+
+Run ALL Tests Projects 
+dotnet test filepath.csproj        
+  EX:  dotnet test Csharp_Selenium_WebDriver_Project.csproj   
+--------------------------------------------------------------------------------------------------------------------------------
+1.run every dataset Parallel                      [Parallelizable(ParallelScope.All)]
+2.run every test in same class in Parallel        [Parallelizable(ParallelScope.Children)] 
+3.run every test outside class in Parallel        [Parallelizable(ParallelScope.self)]
+
+
+
+css selector & path
+           tagname[attribute = 'value']
+driver.FindElement(By.CssSelector("input[value='Sign in']")).Click();
+       //tagname[@attribute = 'value']
+driver.FindElement(By.Xpath("//input[@value='Sign in']")).Click();
+
+Xpath strategy
+//text-info/span/input[1]
+
+cssslector strategy
+                                                .className -----------------------
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> .className masfa tagName 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> tagName.className 
+Ex: .text-info span:nth-child(1)
+Ex: .text-info span:nth-child(2)
+
+#id
+.class
+------------------------------------------------------------------------------------------------------------------------------------------------------
+  new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            driver = new ChromeDriver();
+
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            driver.Manage().Window.Maximize();
+ 
+ WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
+            wait.Until(SeleniumExtras
+                 .WaitHelpers
+                .ExpectedConditions
+                .TextToBePresentInElementValue(By.Id("signInBtn") ,"Sign In"));
+
+--------------------------------------radiobutton----------------------------------------------------------------------------------------------------------------
+       IList<IWebElement> radio= driver.FindElements(By.CssSelector("//input[@type='radio']"));
+            
+            foreach (IWebElement radiobutton in radio)
+            {
+
+                if (radiobutton.GetAttribute("value").Equals("user"))
+                {
+                    radiobutton.Click();
+                }
+            }
+--------------------------------------dropdown-----------------------------------------------------------------------------------------------------
+     IWebElement dropdown = driver.FindElement(By.CssSelector("select.form-control"));
+            SelectElement sel = new SelectElement(dropdown);
+            sel.SelectByText("Consultant");
+            sel.SelectByValue("");
+            sel.SelectByIndex(1);
+
+
+
+StringAssert.contains(expected, actual); >>>>>>>>>>>>> substring 
+asserit(expected,is,asserit); >>>>>>>>>>>>> booolean
